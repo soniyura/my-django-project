@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig', # Register the shop app
     'api.apps.ApiConfig', # Register the api app
+    'tastypie', # Register tastypie for API
 ]
 
 MIDDLEWARE = [
