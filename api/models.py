@@ -16,6 +16,7 @@ class CourseResource(ModelResource):
         queryset = Course.objects.all()
         resource_name = 'courses'
         allowed_methods = ['get', 'post', 'delete']
+        excludes = ['reviews_qty', 'created_at']
         authentication = CustomAuthentication()
         authorization = Authorization()
 
@@ -25,6 +26,7 @@ class CourseResource(ModelResource):
 
     def dehydrate(self, bundle):
         bundle.data['category_id'] = bundle.obj.category
+        bundle.data['category'] = bundle.obj.category_id
         return bundle
 
     def dehydrate_title(self, bundle):
